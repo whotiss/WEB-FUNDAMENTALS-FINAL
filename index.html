@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vitals Mart — Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="promo">30% discount all products — December special</div>
+
+    <header>
+        <div class="logo" aria-hidden="true">
+            <!-- use external logo if available -->
+            <img src="assets/logo/logo.png" alt="Vitals Mart" style="width:40px;height:40px">
+            <span>Vitals Mart</span>
+        </div>
+
+        <nav>
+            <a class="navlink" href="index.html">Home</a>
+            <a class="navlink" href="shop.html">Shop</a>
+            <a class="navlink nav-cart" href="cart.html">
+                <span class="cart-label">Cart</span>
+                <span id="navCartCount" class="nav-bubble">0</span>
+            </a>
+            <a class="navlink" href="contact.html">Contact</a>
+            <div class="nav-dropdown">
+                <button class="navlink nav-btn" type="button">About Us ▾</button>
+                <div class="nav-submenu">
+                    <a href="our-team.html">Our Team</a>
+                    <a href="about-azan.html">Azan</a>
+                    <a href="about-husein.html">Husein</a>
+                    <a href="about-clara.html">Clara</a>
+                    <a href="about-abdullah.html">Abdullah</a>
+                </div>
+            </div>
+            <a class="navlink nav-account" href="account.html">My Account</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-left">
+                <div class="badge">100% Premium Quality</div>
+                <h1 class="hero-title">New Antibacterial Surgical Mask</h1>
+                <div class="hero-sub">Lightweight, triple-layer protection — hospital-grade comfort for everyday use.
+                </div>
+                <div class="price-row">
+                    <div class="price">$50.00</div>
+                    <div class="muted"><del>$62.00</del></div>
+                </div>
+                <div style="display:flex; gap:12px;">
+                    <a class="cta" href="shop.html?focus=1">Shop Now ➜</a>
+                    <button class="ghost" id="learnMore">Learn more</button>
+                </div>
+
+                <!-- hero artwork on left (optional overlay) -->
+                <div class="hero-media">
+                    <img src="assets/hero/hero-mask.png" alt="Surgical Mask">
+                </div>
+            </div>
+
+            <aside class="hero-right">
+                <h3>Thermometer</h3>
+                <div class="promo-im" role="img" aria-label="Thermometer illustration">
+                    <img src="assets/hero/hero-thermometer.png" alt="Thermometer" style="width:86%;height:auto">
+                </div>
+                <div class="hero-offer">
+                    <div class="muted">$50.00 <del class="muted">$62.00</del></div>
+                    <a class="cta" href="shop.html?focus=2">Shop Now</a>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section featured-wrap">
+            <div class="section-title">Featured Categories</div>
+            <div class="feat-grid">
+                <a class="feat-card" href="shop.html?cat=personal">
+                    <div class="feat-icon"><img src="assets/categories/cat-personal.png" alt="Beauty"></div>
+                    <div class="feat-name">Beauty</div>
+                    <div class="feat-count">1 Product</div>
+                </a>
+                <a class="feat-card" href="shop.html?cat=personal">
+                    <div class="feat-icon"><img src="assets/categories/cat-personal.png" alt="Grocery"></div>
+                    <div class="feat-name">Grocery</div>
+                    <div class="feat-count">3 Product</div>
+                </a>
+                <a class="feat-card" href="shop.html?cat=devices">
+                    <div class="feat-icon"><img src="assets/categories/cat-devices.png" alt="Pharmacy"></div>
+                    <div class="feat-name">Pharmacy</div>
+                    <div class="feat-count">1 Product</div>
+                </a>
+                <a class="feat-card" href="shop.html?cat=ppe">
+                    <div class="feat-icon"><img src="assets/categories/cat-ppe.png" alt="Surgical Mask"></div>
+                    <div class="feat-name">Surgical Mask</div>
+                    <div class="feat-count">1 Product</div>
+                </a>
+                <a class="feat-card" href="shop.html?cat=firstaid">
+                    <div class="feat-icon"><img src="assets/categories/cat-firstaid.png" alt="Medkits"></div>
+                    <div class="feat-name">Medkits</div>
+                    <div class="feat-count">2 Product</div>
+                </a>
+                <a class="feat-card" href="shop.html?cat=devices">
+                    <div class="feat-icon"><img src="assets/categories/cat-devices.png" alt="Medicine"></div>
+                    <div class="feat-name">Medicine</div>
+                    <div class="feat-count">1 Product</div>
+                </a>
+            </div>
+
+            <div class="promo-row">
+                <div class="promo-card deep">
+                    <div>
+                        <div class="promo-pill">-20% OFF</div>
+                        <div class="promo-title">Hand Sanitizer</div>
+                        <p class="muted">Keep your hands clean on the go with hospital-grade protection.</p>
+                        <a class="cta small" href="shop.html?search=sanitizer">Shop Now</a>
+                    </div>
+                    <img src="assets/products/sanitizer.png" alt="Hand Sanitizer" class="promo-img">
+                </div>
+                <div class="promo-card amber">
+                    <div>
+                        <div class="promo-pill">Up to 25% Off</div>
+                        <div class="promo-title">Immunity Supplements</div>
+                        <p class="muted">Daily vitamins and herbal boosters to strengthen your immunity.</p>
+                        <a class="cta small" href="shop.html?search=supplement">Shop Now</a>
+                    </div>
+                    <img src="assets/products/supplement.png" alt="Supplements" class="promo-img">
+                </div>
+                <div class="promo-card coral">
+                    <div>
+                        <div class="promo-pill">Up to 25% Off</div>
+                        <div class="promo-title">N95 Face Masks</div>
+                        <p class="muted">Comfortable, breathable masks that block 95% of airborne particles.</p>
+                        <a class="cta small" href="shop.html?search=mask">Shop Now</a>
+                    </div>
+                    <img src="assets/products/masks.png" alt="Mask" class="promo-img">
+                </div>
+            </div>
+
+            <div class="section-title">Popular Categories</div>
+            <div class="pop-tabs">
+                <span class="tab active" data-pop="Medical Supplies">Medical Supplies</span>
+                <span class="tab" data-pop="Beauty">Beauty</span>
+                <span class="tab" data-pop="Grocery">Grocery</span>
+                <span class="tab" data-pop="Face Masks">Face Masks</span>
+            </div>
+            <div id="popGrid" class="pop-grid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-benefits">
+            <div class="benefit">
+                <span class="benefit-icon">🚚</span>
+                <div>
+                    <div class="benefit-title">Free & Fast Shipping</div>
+                    <div class="benefit-sub">Same-day dispatch on weekday orders over $100.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">💳</span>
+                <div>
+                    <div class="benefit-title">Secure Payment</div>
+                    <div class="benefit-sub">Protected checkout with your preferred method.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">↩️</span>
+                <div>
+                    <div class="benefit-title">30-Day Guarantee</div>
+                    <div class="benefit-sub">Easy returns or exchanges on unopened items.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🎁</span>
+                <div>
+                    <div class="benefit-title">Member Discounts</div>
+                    <div class="benefit-sub">Exclusive bundles and seasonal savings.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo/logo.png" alt="Vitals Mart logo">
+                        <span>Vitals Mart</span>
+                    </div>
+                    <p class="footer-intro">Vitals Mart delivers trusted medical supplies and wellness essentials across
+                        Malaysia. We blend hospital-grade standards with everyday convenience.</p>
+                    <ul class="footer-contact">
+                        <li><span>📞</span>+60 10 377 7479</li>
+                        <li><span>✉️</span><a href="mailto:support@vitalsmart.example">support@vitalsmart.example</a>
+                        </li>
+                        <li><span>📍</span>Sunway University, Jalan Universiti, Bandar Sunway,<br>47500 Subang Jaya,
+                            Selangor, Malaysia</li>
+                        <li><span>⏰</span>Hours: Mon–Fri, 9am–6pm MYT</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="cart.html">Cart</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="account.html">My Account</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="our-team.html">Our Team</a>
+                        <a href="about-azan.html">Azan</a>
+                        <a href="about-husein.html">Husein</a>
+                        <a href="about-clara.html">Clara</a>
+                        <a href="about-abdullah.html">Abdullah</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div class="footer-news">
+                        <p>Get updates on new arrivals and offers.</p>
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button">Submit Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Vitals Mart. All rights reserved.</span>
+                <div class="footer-badges">
+                    <span class="footer-tag">Secure checkout</span>
+                    <span class="footer-tag">Quality assurance</span>
+                    <span class="footer-tag">Local support</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        const popularData = {
+            'Medical Supplies': [
+                { id: 'pers-1', name: 'Hand Sanitizer', price: 108.99, img: 'assets/products/sanitizer.png', badges: ['New', 'Trending'] },
+                { id: 'med-1', name: "Moderna's Vaccine", price: 168.99, img: 'assets/products/vaccine.png', badges: ['-15%'] },
+                { id: 'dev-2', name: 'Blood Pressure Monitor', price: 50.00, img: 'assets/products/bloodpressure.png', badges: ['Trending'] },
+                { id: 'ppe-3', name: 'White 3D Mask N95', price: 80.99, img: 'assets/products/masks.png', badges: [] },
+            ],
+            'Beauty': [
+                { id: 'ppe-4', name: 'Antibacterial Mask Box', price: 50.00, img: 'assets/products/mask%202.png', badges: ['New'] },
+                { id: 'supp-1', name: 'Supplement Pack', price: 280.99, img: 'assets/products/supplement.png', badges: ['Hot'] },
+            ],
+            'Grocery': [
+                { id: 'pers-1', name: 'Hand Sanitizer', price: 108.99, img: 'assets/products/sanitizer.png', badges: ['New'] }
+            ],
+            'Face Masks': [
+                { id: 'ppe-3', name: 'White 3D Mask N95', price: 80.99, img: 'assets/products/masks.png', badges: ['Trending'] },
+                { id: 'ppe-4', name: 'Antibacterial Mask Box', price: 50.00, img: 'assets/products/mask%202.png', badges: ['-10%'] }
+            ]
+        };
+
+        const popGrid = document.getElementById('popGrid');
+        const popTabs = document.querySelectorAll('.pop-tabs .tab');
+
+        function renderPop(category) {
+            if (!popGrid) return;
+            const items = popularData[category] || [];
+            popGrid.innerHTML = '';
+            items.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'pop-card';
+
+                const badgesHtml = (item.badges || []).map((b, idx) => {
+                    const cls = idx === 0 ? 'blue' : idx === 1 ? 'gray' : 'gold';
+                    return `<div class="badge ${cls}">${b}</div>`;
+                }).join('');
+
+                card.innerHTML = `
+                    ${badgesHtml}
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="pop-title">${item.name}</div>
+                    <div class="pop-price">$${item.price.toFixed(2)}</div>
+                    <button class="add-mini" data-add="${item.id}">+ Add</button>
+                `;
+
+                popGrid.appendChild(card);
+            });
+
+            popGrid.querySelectorAll('[data-add]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-add');
+                    if (typeof addToCart === 'function') {
+                        addToCart(id, 1);
+                        btn.textContent = 'Added';
+                        setTimeout(() => btn.textContent = '+ Add', 800);
+                    }
+                });
+            });
+        }
+
+        popTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                popTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderPop(tab.getAttribute('data-pop'));
+            });
+        });
+
+        renderPop('Medical Supplies');
+    </script>
+</body>
+
+</html>

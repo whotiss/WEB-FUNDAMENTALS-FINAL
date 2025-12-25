@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vitals Mart — My Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo" aria-hidden="true">
+            <img src="assets/logo/logo.png" alt="Vitals Mart" style="width:40px;height:40px">
+            <span>Vitals Mart</span>
+        </div>
+        <nav>
+            <a class="navlink" href="index.html">Home</a>
+            <a class="navlink" href="shop.html">Shop</a>
+            <a class="navlink nav-cart" href="cart.html">
+                <span class="cart-label">Cart</span>
+                <span id="navCartCount" class="nav-bubble">0</span>
+            </a>
+            <a class="navlink" href="contact.html">Contact</a>
+            <div class="nav-dropdown">
+                <button class="navlink nav-btn" type="button">About Us ▾</button>
+                <div class="nav-submenu">
+                    <a href="our-team.html">Our Team</a>
+                    <a href="about-azan.html">Azan</a>
+                    <a href="about-husein.html">Husein</a>
+                    <a href="about-clara.html">Clara</a>
+                    <a href="about-abdullah.html">Abdullah</a>
+                </div>
+            </div>
+            <a class="navlink nav-account active" href="account.html">My Account</a>
+        </nav>
+    </header>
+
+    <main class="section account-page">
+        <section class="account-hero">
+            <p class="muted">Home / My Account</p>
+            <h1>My Account</h1>
+            <p class="muted">Sign in to manage your orders, wishlist, and saved addresses. New here? Create an account
+                in seconds.</p>
+        </section>
+
+        <div class="account-grid">
+            <div class="account-card">
+                <div class="account-tabs" role="tablist">
+                    <button class="account-tab active" type="button" data-tab="login"
+                        aria-selected="true">Login</button>
+                    <button class="account-tab" type="button" data-tab="signup" aria-selected="false">Create
+                        Account</button>
+                </div>
+
+                <div id="accountBanner" class="form-banner error is-hidden"></div>
+
+                <form id="loginForm" class="account-form" data-pane="login" novalidate>
+                    <label>Email
+                        <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>Password
+                        <input name="password" type="password" autocomplete="current-password" placeholder="••••••••"
+                            required>
+                    </label>
+                    <div class="account-actions">
+                        <button class="cta" type="submit">Login Now</button>
+                        <a class="account-help" href="#">Forgot your password?</a>
+                    </div>
+                </form>
+
+                <form id="signupForm" class="account-form is-hidden" data-pane="signup" novalidate>
+                    <label>Full name
+                        <input name="name" autocomplete="name" placeholder="Your full name" required>
+                    </label>
+                    <label>Email
+                        <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>Password
+                        <input name="password" type="password" autocomplete="new-password"
+                            placeholder="Create a password" required>
+                    </label>
+                    <div class="account-actions">
+                        <button class="cta" type="submit">Sign Up</button>
+                        <div class="muted">By continuing you agree to our terms.</div>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="account-side">
+                <h3>Why create an account?</h3>
+                <ul class="account-bullets">
+                    <li>📦 Track orders and delivery updates</li>
+                    <li>🧾 View invoices and order history</li>
+                    <li>❤️ Save favorites and quick re-order</li>
+                    <li>🏠 Store multiple shipping addresses</li>
+                </ul>
+                <div class="account-meta">
+                    <span><strong>Need help?</strong> Email <a
+                            href="mailto:support@vitalsmart.example">support@vitalsmart.example</a></span>
+                    <span>Phone: +60 10 377 7479 (Mon–Fri, 9am–6pm MYT)</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-benefits">
+            <div class="benefit">
+                <span class="benefit-icon">🚚</span>
+                <div>
+                    <div class="benefit-title">Free & Fast Shipping</div>
+                    <div class="benefit-sub">Same-day dispatch on weekday orders over $100.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">💳</span>
+                <div>
+                    <div class="benefit-title">Secure Payment</div>
+                    <div class="benefit-sub">Protected checkout with your preferred method.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">↩️</span>
+                <div>
+                    <div class="benefit-title">30-Day Guarantee</div>
+                    <div class="benefit-sub">Easy returns or exchanges on unopened items.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🎁</span>
+                <div>
+                    <div class="benefit-title">Member Discounts</div>
+                    <div class="benefit-sub">Exclusive bundles and seasonal savings.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo/logo.png" alt="Vitals Mart logo">
+                        <span>Vitals Mart</span>
+                    </div>
+                    <p class="footer-intro">Vitals Mart delivers trusted medical supplies and wellness essentials across
+                        Malaysia. We blend hospital-grade standards with everyday convenience.</p>
+                    <ul class="footer-contact">
+                        <li><span>📞</span>+60 10 377 7479</li>
+                        <li><span>✉️</span><a href="mailto:support@vitalsmart.example">support@vitalsmart.example</a>
+                        </li>
+                        <li><span>📍</span>Sunway University, Jalan Universiti, Bandar Sunway,<br>47500 Subang Jaya,
+                            Selangor, Malaysia</li>
+                        <li><span>⏰</span>Hours: Mon–Fri, 9am–6pm MYT</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="cart.html">Cart</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="account.html">My Account</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="our-team.html">Our Team</a>
+                        <a href="about-azan.html">Azan</a>
+                        <a href="about-husein.html">Husein</a>
+                        <a href="about-clara.html">Clara</a>
+                        <a href="about-abdullah.html">Abdullah</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div class="footer-news">
+                        <p>Get updates on new arrivals and offers.</p>
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button">Submit Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Vitals Mart. All rights reserved.</span>
+                <div class="footer-badges">
+                    <span class="footer-tag">Secure checkout</span>
+                    <span class="footer-tag">Quality assurance</span>
+                    <span class="footer-tag">Local support</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        const tabButtons = document.querySelectorAll('.account-tab');
+        const panes = document.querySelectorAll('[data-pane]');
+        const accountBanner = document.getElementById('accountBanner');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        function validateEmail(val) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+        }
+
+        function clearAccountErrors() {
+            accountBanner.classList.add('is-hidden');
+            accountBanner.textContent = '';
+            document.querySelectorAll('.form-error').forEach(el => el.remove());
+            document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+        }
+
+        function setFieldError(input, message) {
+            input.classList.add('input-error');
+            const err = document.createElement('div');
+            err.className = 'form-error';
+            err.textContent = message;
+            input.closest('label').appendChild(err);
+        }
+
+        function setBanner(message, isSuccess) {
+            accountBanner.textContent = message;
+            accountBanner.classList.remove('is-hidden');
+            accountBanner.classList.toggle('success', !!isSuccess);
+            accountBanner.classList.toggle('error', !isSuccess);
+        }
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-tab');
+                tabButtons.forEach(b => b.classList.toggle('active', b === btn));
+                tabButtons.forEach(b => b.setAttribute('aria-selected', b === btn ? 'true' : 'false'));
+                panes.forEach(p => p.classList.toggle('is-hidden', p.getAttribute('data-pane') !== target));
+                clearAccountErrors();
+            });
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearAccountErrors();
+            const data = Object.fromEntries(new FormData(loginForm).entries());
+            const errors = [];
+
+            if (!data.email || !validateEmail(data.email)) {
+                errors.push('Enter a valid email.');
+                setFieldError(loginForm.elements.email, 'Email format looks off.');
+            }
+            if (!data.password || data.password.length < 6) {
+                errors.push('Password must be at least 6 characters.');
+                setFieldError(loginForm.elements.password, 'Use 6+ characters.');
+            }
+
+            if (errors.length) {
+                setBanner(errors.join(' '), false);
+                return;
+            }
+
+            const simulateFail = data.email.toLowerCase().includes('fail') || data.password === 'wrong';
+            if (simulateFail) {
+                setBanner('Login failed (demo): invalid credentials.', false);
+                return;
+            }
+
+            setBanner('Login successful (demo). In production this would start a session.', true);
+            loginForm.reset();
+        });
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearAccountErrors();
+            const data = Object.fromEntries(new FormData(signupForm).entries());
+            const errors = [];
+
+            if (!data.name || data.name.trim().length < 2) {
+                errors.push('Please provide your full name.');
+                setFieldError(signupForm.elements.name, 'Enter at least 2 characters.');
+            }
+            if (!data.email || !validateEmail(data.email)) {
+                errors.push('Enter a valid email.');
+                setFieldError(signupForm.elements.email, 'Email format looks off.');
+            }
+            if (!data.password || data.password.length < 8) {
+                errors.push('Password must be at least 8 characters.');
+                setFieldError(signupForm.elements.password, 'Use 8+ characters.');
+            }
+
+            if (errors.length) {
+                setBanner(errors.join(' '), false);
+                return;
+            }
+
+            const emailTaken = data.email.toLowerCase().includes('taken') || data.email.toLowerCase().includes('exists');
+            if (emailTaken) {
+                setBanner('Sign-up failed (demo): email already in use.', false);
+                return;
+            }
+
+            setBanner('Account created (demo). In production this would create your profile.', true);
+            signupForm.reset();
+        });
+    </script>
+</body>
+
+</html>

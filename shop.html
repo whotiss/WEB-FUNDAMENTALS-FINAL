@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vitals Mart — Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="assets/logo/logo.png" alt="logo" style="width:36px;height:36px;vertical-align:middle">
+            Vitals Mart
+        </div>
+        <nav>
+            <a class="navlink" href="index.html">Home</a>
+            <a class="navlink active" href="shop.html">Shop</a>
+            <a class="navlink nav-cart" href="cart.html">
+                <span class="cart-label">Cart</span>
+                <span id="navCartCount2" class="nav-bubble">0</span>
+            </a>
+            <a class="navlink" href="contact.html">Contact</a>
+            <div class="nav-dropdown">
+                <button class="navlink nav-btn" type="button">About Us ▾</button>
+                <div class="nav-submenu">
+                    <a href="our-team.html">Our Team</a>
+                    <a href="about-azan.html">Azan</a>
+                    <a href="about-husein.html">Husein</a>
+                    <a href="about-clara.html">Clara</a>
+                    <a href="about-abdullah.html">Abdullah</a>
+                </div>
+            </div>
+            <a class="navlink nav-account" href="account.html">My Account</a>
+        </nav>
+    </header>
+
+    <main class="section shop-page">
+
+        <!-- SHOP LAYOUT -->
+        <div class="shop-layout">
+
+            <!-- LEFT SIDEBAR -->
+            <aside class="shop-sidebar">
+
+                <h3>Shop By Category</h3>
+                <ul>
+                    <li onclick="filterCategory('ppe')">Surgical Mask</li>
+                    <li onclick="filterCategory('devices')">Devices</li>
+                    <li onclick="filterCategory('firstaid')">First Aid</li>
+                    <li onclick="filterCategory('personal')">Personal Care</li>
+                </ul>
+
+                <div class="price-range">
+                    <h3>Price Range</h3>
+                    <input type="range" min="0" max="300" value="300">
+                    <div class="muted" id="priceLabel">Up to $300</div>
+                </div>
+
+                <div class="rating-filter">
+                    <h3>By Rating</h3>
+                    <span>★★★★★ (9)</span>
+                    <span>★★★★☆ (4)</span>
+                    <span>★★★☆☆ (2)</span>
+                </div>
+
+            </aside>
+
+            <!-- RIGHT CONTENT -->
+            <div class="shop-content">
+
+                <!-- TOP TOOLBAR -->
+                <div class="shop-toolbar">
+                    <div class="muted" id="shopStatus">Showing medical products</div>
+
+                    <div class="shop-toolbar-right">
+                        <label class="muted">Sort:
+                            <select id="shopSort">
+                                <option value="pop">Popular</option>
+                                <option value="price-asc">Price ↑</option>
+                                <option value="price-desc">Price ↓</option>
+                            </select>
+                        </label>
+
+                        <div class="shop-search">
+                            <input id="shopSearch" placeholder="Search products" />
+                            <button class="cta" id="shopSearchBtn">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT GRID -->
+                <div id="shopGrid" class="shop-grid"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickViewOverlay" class="qv-overlay"></div>
+    <div id="quickViewModal" class="qv-modal" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
+        <button class="qv-close" id="qvCloseBtn" aria-label="Close quick view">×</button>
+        <div class="qv-grid">
+            <div class="qv-media">
+                <img id="qvImage" src="" alt="Product preview">
+            </div>
+            <div class="qv-details">
+                <div class="qv-top">
+                    <div class="qv-stars" id="qvRating"></div>
+                </div>
+                <h3 class="qv-title" id="qvTitle"></h3>
+                <div class="qv-price-row">
+                    <span class="qv-price" id="qvPrice"></span>
+                    <span class="qv-old" id="qvOldPrice"></span>
+                </div>
+                <p class="qv-desc" id="qvDesc"></p>
+
+                <div class="qv-row">
+                    <span class="qv-label">Color</span>
+                    <div class="qv-swatches" id="qvColors"></div>
+                </div>
+
+                <div class="qv-row">
+                    <span class="qv-label">Size</span>
+                    <div class="qv-sizes" id="qvSizes"></div>
+                </div>
+
+                <div class="qv-row qv-qty">
+                    <span class="qv-label">Quantity</span>
+                    <div class="qv-stepper">
+                        <button id="qvQtyDec" aria-label="Decrease quantity">−</button>
+                        <input id="qvQtyInput" type="number" min="1" value="1" aria-label="Quantity">
+                        <button id="qvQtyInc" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+
+                <div class="qv-actions">
+                    <button class="cta" id="qvAddBtn">Add to cart</button>
+                    <button class="ghost" type="button" aria-label="Wishlist">♡</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-benefits">
+            <div class="benefit">
+                <span class="benefit-icon">🚚</span>
+                <div>
+                    <div class="benefit-title">Free & Fast Shipping</div>
+                    <div class="benefit-sub">Same-day dispatch on weekday orders over $100.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">💳</span>
+                <div>
+                    <div class="benefit-title">Secure Payment</div>
+                    <div class="benefit-sub">Protected checkout with your preferred method.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">↩️</span>
+                <div>
+                    <div class="benefit-title">30-Day Guarantee</div>
+                    <div class="benefit-sub">Easy returns or exchanges on unopened items.</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🎁</span>
+                <div>
+                    <div class="benefit-title">Member Discounts</div>
+                    <div class="benefit-sub">Exclusive bundles and seasonal savings.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo/logo.png" alt="Vitals Mart logo">
+                        <span>Vitals Mart</span>
+                    </div>
+                    <p class="footer-intro">Vitals Mart delivers trusted medical supplies and wellness essentials across
+                        Malaysia. We blend hospital-grade standards with everyday convenience.</p>
+                    <ul class="footer-contact">
+                        <li><span>📞</span>+60 10 377 7479</li>
+                        <li><span>✉️</span><a href="mailto:support@vitalsmart.example">support@vitalsmart.example</a>
+                        </li>
+                        <li><span>📍</span>Sunway University, Jalan Universiti, Bandar Sunway,<br>47500 Subang Jaya,
+                            Selangor, Malaysia</li>
+                        <li><span>⏰</span>Hours: Mon–Fri, 9am–6pm MYT</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="cart.html">Cart</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="account.html">My Account</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="our-team.html">Our Team</a>
+                        <a href="about-azan.html">Azan</a>
+                        <a href="about-husein.html">Husein</a>
+                        <a href="about-clara.html">Clara</a>
+                        <a href="about-abdullah.html">Abdullah</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div class="footer-news">
+                        <p>Get updates on new arrivals and offers.</p>
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button">Submit Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Vitals Mart. All rights reserved.</span>
+                <div class="footer-badges">
+                    <span class="footer-tag">Secure checkout</span>
+                    <span class="footer-tag">Quality assurance</span>
+                    <span class="footer-tag">Local support</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Basic mock catalog so the grid always has something to render
+        const products = [
+            { id: 'med-1', name: "Moderna's Vaccine", price: 168.99, oldPrice: 264.99, category: 'devices', rating: 4.8, popularity: 1, tag: 'sale', img: 'assets/products/vaccine.png', description: 'mRNA vial with controlled cold-chain packaging.', colors: ['#0f172a', '#f97316', '#2563eb'], sizes: ['S', 'M', 'L'] },
+            { id: 'pers-1', name: 'Hand Sanitizer 500ml', price: 108.99, oldPrice: 264.99, category: 'personal', rating: 4.7, popularity: 2, tag: 'sale', img: 'assets/products/sanitizer.png', description: '70% alcohol with moisturizer, non-sticky finish.', colors: ['#0f172a', '#2563eb', '#ef4444'], sizes: ['S', 'M', 'L'] },
+            { id: 'ppe-1', name: 'Hand Gloves (Blue)', price: 18.99, oldPrice: 264.99, category: 'ppe', rating: 4.6, popularity: 3, tag: 'trending', img: 'assets/products/gloves.png', description: 'Latex-free disposable gloves for sensitive skin.', colors: ['#2563eb', '#0ea5e9', '#e5e7eb'], sizes: ['S', 'M', 'L'] },
+            { id: 'ppe-2', name: 'Medical Apron', price: 80.99, oldPrice: 120.00, category: 'ppe', rating: 4.4, popularity: 4, tag: 'new', img: 'assets/products/apron.png', description: 'Fluid-resistant apron with breathable back panel.', colors: ['#111827', '#9ca3af', '#f59e0b'], sizes: ['S', 'M', 'L'] },
+            { id: 'supp-1', name: 'Food Supplement', price: 280.99, oldPrice: 320.00, category: 'personal', rating: 4.5, popularity: 5, tag: 'super', img: 'assets/products/supplement.png', description: 'Essential micronutrients for daily immunity.', colors: ['#6b21a8', '#f97316', '#facc15'], sizes: ['S', 'M', 'L'] },
+            { id: 'dev-1', name: 'Mesh Nebulizer', price: 200.99, oldPrice: 240.00, category: 'devices', rating: 4.7, popularity: 6, tag: 'new', img: 'assets/products/nebulizer.png', description: 'Portable mesh tech for quieter treatments.', colors: ['#0ea5e9', '#0f172a', '#22c55e'], sizes: ['S', 'M', 'L'] },
+            { id: 'ppe-3', name: 'White 3D Mask N95', price: 80.99, oldPrice: 110.00, category: 'ppe', rating: 4.3, popularity: 7, img: 'assets/products/masks.png', description: 'N95-rated 3D mask with snug nose bridge.', colors: ['#e5e7eb', '#94a3b8', '#0ea5e9'], sizes: ['S', 'M', 'L'] },
+            { id: 'dev-2', name: 'Blood Pressure Monitor', price: 200.99, oldPrice: 260.00, category: 'devices', rating: 4.6, popularity: 8, tag: 'new', img: 'assets/products/bloodpressure.png', description: 'Upper-arm digital monitor with memory log.', colors: ['#0f172a', '#2563eb', '#f97316'], sizes: ['S', 'M', 'L'] },
+            { id: 'med-2', name: 'Medicine Box Pack', price: 168.99, oldPrice: 214.00, category: 'devices', rating: 4.2, popularity: 9, tag: 'new', img: 'assets/products/medince.png', description: 'Week-long organizer with tamper seals.', colors: ['#0f172a', '#4b5563', '#f59e0b'], sizes: ['S', 'M', 'L'] },
+            { id: 'ppe-4', name: 'Antibacterial Surgical Mask (Box of 50)', price: 50.00, oldPrice: 62.00, category: 'ppe', rating: 4.9, popularity: 10, tag: 'sale', img: 'assets/products/mask%202.png', description: 'Triple-layer surgical masks with nose clip and comfort fit.', colors: ['#0f172a', '#2563eb', '#94a3b8'], sizes: ['S', 'M', 'L'] },
+            { id: 'dev-3', name: 'Digital IR Thermometer', price: 50.00, oldPrice: 62.00, category: 'devices', rating: 4.8, popularity: 11, tag: 'hot', img: 'assets/products/thermometer.png', description: 'Fast non-contact readings with backlit display.', colors: ['#1e293b', '#38bdf8', '#e0f2fe'], sizes: ['S', 'M', 'L'] }
+        ];
+
+        // Use the same cart storage key/shape as app.js so counts match on every page
+        const STORAGE_KEY = 'medimela_cart_v1';
+
+        function getCartObj() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function setCartObj(cart) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+            updateCartCount(cartTotalCount(cart));
+        }
+
+        function cartTotalCount(cart) {
+            return Object.values(cart).reduce((s, q) => s + q, 0);
+        }
+
+        const categoryLabels = {
+            ppe: 'Surgical Mask',
+            devices: 'Devices',
+            firstaid: 'First Aid',
+            personal: 'Personal Care'
+        };
+
+        let activeCategory = null;
+        let searchTerm = '';
+        let sortOption = 'pop';
+        let maxPrice = 300;
+
+        const gridEl = document.getElementById('shopGrid');
+        const searchInput = document.getElementById('shopSearch');
+        const searchBtn = document.getElementById('shopSearchBtn');
+        const sortSelect = document.getElementById('shopSort');
+        const priceSlider = document.querySelector('.price-range input');
+        const priceLabel = document.getElementById('priceLabel');
+        const shopStatus = document.getElementById('shopStatus');
+
+        function updateCartCount(count) {
+            const bubble = document.getElementById('navCartCount2');
+            if (bubble) bubble.textContent = count;
+        }
+
+        function readCartCount() {
+            const cart = getCartObj();
+            updateCartCount(cartTotalCount(cart));
+        }
+
+        function renderProducts(list) {
+            if (!gridEl) return;
+            gridEl.innerHTML = '';
+
+            if (!list.length) {
+                const empty = document.createElement('div');
+                empty.className = 'muted';
+                empty.textContent = 'No products found.';
+                gridEl.appendChild(empty);
+                return;
+            }
+
+            list.forEach((p) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                const badge = p.tag ? `<span class="product-badge ${p.tag}">${p.tag}</span>` : '';
+                const img = p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<div class="thumb-circle">${p.name.charAt(0)}</div>`;
+
+                card.innerHTML = `
+                    <div class="product-thumb" aria-hidden="true">
+                        ${badge}
+                        <button class="quick-view-btn" data-quick-id="${p.id}" aria-label="Quick view ${p.name}">👁</button>
+                        ${img}
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">${p.name}</div>
+                        <div class="muted">${categoryLabels[p.category] || ''}</div>
+                        <div class="product-meta">
+                            <span class="price">$${p.price.toFixed(2)}</span>
+                            <span class="rating">★ ${p.rating.toFixed(1)}</span>
+                        </div>
+                        <button class="cta ghost" data-id="${p.id}">Add to cart</button>
+                    </div>
+                `;
+
+                const btn = card.querySelector('button.cta');
+                if (btn) {
+                    btn.addEventListener('click', () => handleAddToCart(p));
+                }
+
+                const quickBtn = card.querySelector('[data-quick-id]');
+                if (quickBtn) {
+                    quickBtn.addEventListener('click', () => openQuickView(p));
+                }
+
+                gridEl.appendChild(card);
+            });
+        }
+
+        function handleAddToCart(product, qty = 1) {
+            // align with app.js: cart is an object of id -> qty
+            const cart = getCartObj();
+            cart[product.id] = (cart[product.id] || 0) + Math.max(1, qty);
+            setCartObj(cart);
+        }
+
+        // QUICK VIEW
+        const quickOverlay = document.getElementById('quickViewOverlay');
+        const quickModal = document.getElementById('quickViewModal');
+        const quickClose = document.getElementById('qvCloseBtn');
+        const quickImg = document.getElementById('qvImage');
+        const quickTitle = document.getElementById('qvTitle');
+        const quickRating = document.getElementById('qvRating');
+        const quickPrice = document.getElementById('qvPrice');
+        const quickOld = document.getElementById('qvOldPrice');
+        const quickDesc = document.getElementById('qvDesc');
+        const quickColors = document.getElementById('qvColors');
+        const quickSizes = document.getElementById('qvSizes');
+        const quickQtyInput = document.getElementById('qvQtyInput');
+        const quickQtyInc = document.getElementById('qvQtyInc');
+        const quickQtyDec = document.getElementById('qvQtyDec');
+        const quickAddBtn = document.getElementById('qvAddBtn');
+        let activeQuickProduct = null;
+
+        function renderStars(rating = 0) {
+            const score = Math.max(0, Math.min(5, rating));
+            const filled = Math.round(score);
+            return `${'★'.repeat(filled)}${'☆'.repeat(5 - filled)} <span class="muted">${rating.toFixed(1)}</span>`;
+        }
+
+        function toggleQuickView(show) {
+            if (!quickOverlay || !quickModal) return;
+            quickOverlay.classList.toggle('show', show);
+            quickModal.classList.toggle('show', show);
+            document.body.classList.toggle('modal-open', show);
+            if (show && quickQtyInput) quickQtyInput.focus({ preventScroll: true });
+        }
+
+        function renderOptions(container, items, baseClass) {
+            if (!container) return;
+            container.innerHTML = '';
+            const list = items && items.length ? items : [];
+            list.forEach((val, idx) => {
+                const btn = document.createElement('button');
+                btn.className = baseClass + (idx === 0 ? ' active' : '');
+                btn.dataset.value = val;
+                if (baseClass.includes('swatch')) btn.style.setProperty('--sw', val);
+                btn.textContent = baseClass.includes('swatch') ? '' : val;
+                btn.addEventListener('click', () => {
+                    container.querySelectorAll('.' + baseClass).forEach((b) => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        function openQuickView(product) {
+            if (!product) return;
+            activeQuickProduct = product;
+            if (quickImg) {
+                quickImg.src = product.img || '';
+                quickImg.alt = product.name || 'Product image';
+            }
+            if (quickTitle) quickTitle.textContent = product.name || '';
+            if (quickRating) quickRating.innerHTML = renderStars(product.rating || 0);
+            if (quickPrice) quickPrice.textContent = `$${product.price.toFixed(2)}`;
+            if (quickOld) {
+                quickOld.textContent = product.oldPrice ? `$${product.oldPrice.toFixed(2)}` : '';
+                quickOld.style.display = product.oldPrice ? 'inline' : 'none';
+            }
+            if (quickDesc) quickDesc.textContent = product.description || 'High quality medical product.';
+            renderOptions(quickColors, product.colors || [], 'qv-swatch');
+            renderOptions(quickSizes, product.sizes || [], 'qv-size');
+            if (quickQtyInput) quickQtyInput.value = 1;
+            toggleQuickView(true);
+        }
+
+        function closeQuickView() {
+            toggleQuickView(false);
+            activeQuickProduct = null;
+        }
+
+        if (quickOverlay) quickOverlay.addEventListener('click', closeQuickView);
+        if (quickClose) quickClose.addEventListener('click', closeQuickView);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeQuickView();
+        });
+
+        if (quickQtyInc) quickQtyInc.addEventListener('click', () => {
+            if (!quickQtyInput) return;
+            const next = Math.max(1, Number(quickQtyInput.value) + 1 || 1);
+            quickQtyInput.value = next;
+        });
+        if (quickQtyDec) quickQtyDec.addEventListener('click', () => {
+            if (!quickQtyInput) return;
+            const next = Math.max(1, Number(quickQtyInput.value) - 1 || 1);
+            quickQtyInput.value = next;
+        });
+
+        if (quickAddBtn) {
+            quickAddBtn.addEventListener('click', () => {
+                if (!activeQuickProduct) return;
+                const qty = Math.max(1, Number(quickQtyInput?.value) || 1);
+                handleAddToCart(activeQuickProduct, qty);
+                quickAddBtn.textContent = 'Added';
+                setTimeout(() => quickAddBtn.textContent = 'Add to cart', 800);
+            });
+        }
+
+        function applyFilters() {
+            let list = products.filter((p) => p.price <= maxPrice);
+
+            if (activeCategory) {
+                list = list.filter((p) => p.category === activeCategory);
+            }
+
+            if (searchTerm) {
+                list = list.filter((p) => p.name.toLowerCase().includes(searchTerm));
+            }
+
+            if (sortOption === 'price-asc') {
+                list.sort((a, b) => a.price - b.price);
+            } else if (sortOption === 'price-desc') {
+                list.sort((a, b) => b.price - a.price);
+            } else {
+                list.sort((a, b) => a.popularity - b.popularity);
+            }
+
+            renderProducts(list);
+            if (shopStatus) {
+                shopStatus.textContent = `Showing ${list.length} of ${products.length} results`;
+            }
+        }
+
+        function filterCategory(cat) {
+            activeCategory = activeCategory === cat ? null : cat;
+            applyFilters();
+        }
+        window.filterCategory = filterCategory;
+
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => {
+                searchTerm = (searchInput?.value || '').trim().toLowerCase();
+                applyFilters();
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    searchTerm = searchInput.value.trim().toLowerCase();
+                    applyFilters();
+                }
+            });
+        }
+
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                sortOption = e.target.value;
+                applyFilters();
+            });
+        }
+
+        if (priceSlider) {
+            priceSlider.addEventListener('input', (e) => {
+                maxPrice = Number(e.target.value) || 300;
+                if (priceLabel) priceLabel.textContent = `Up to $${maxPrice}`;
+                applyFilters();
+            });
+        }
+
+        readCartCount();
+        applyFilters();
+    </script>
+
+</body>
+
+</html>
