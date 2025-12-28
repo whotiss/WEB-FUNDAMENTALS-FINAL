@@ -224,4 +224,38 @@ document.addEventListener('DOMContentLoaded', function () {
   updateNavCartCounts();
   if (document.getElementById('shopGrid')) renderShopGrid('shopGrid');
   if (document.getElementById('cartPage')) renderCartPage();
+
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (navToggle && mobileMenu) {
+    // force closed on load
+    mobileMenu.setAttribute('hidden', '');
+    navToggle.setAttribute('aria-expanded', 'false');
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileMenu.hasAttribute('hidden') === false;
+      if (isOpen) {
+        mobileMenu.setAttribute('hidden', '');
+        navToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileMenu.removeAttribute('hidden');
+        navToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    mobileMenu.addEventListener('click', () => {
+      mobileMenu.setAttribute('hidden', '');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('click', (evt) => {
+      if (mobileMenu.hasAttribute('hidden')) return;
+      const target = evt.target;
+      if (mobileMenu.contains(target) || navToggle.contains(target)) return;
+      mobileMenu.setAttribute('hidden', '');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  }
 });
